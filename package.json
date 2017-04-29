@@ -1,0 +1,49 @@
+{
+  "name": "ts-trapper",
+  "version": "0.1.0",
+  "description": "TypeScript type-wrappers, quickly defined with classes.",
+  "main": "lib/js/index.js",
+  "jsnext:main": "lib/jsnext/index.js",
+  "typings": "lib/js/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf lib/js*/*",
+    "test:mocha": "mocha -r ts-node/register test/unit/*.ts",
+    "test:lint": "tslint src/**/*.ts test/**/*.ts",
+    "test:typings": "typings-checker --allow-expect-error --project test/typings/tsconfig.json test/typings/index.ts",
+    "test": "npm run test:lint && npm run test:typings && npm run test:mocha",
+    "build": "npm run clean && tsc && tsc -m es6 --outDir lib/jsnext"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damncabbage/ts-trapper.git"
+  },
+  "keywords": [
+    "typescript",
+    "type-safety"
+  ],
+  "tags": [
+    "typescript",
+    "type-safety"
+  ],
+  "files": [
+    "lib/js",
+    "lib/jsnext"
+  ],
+  "author": "Rob Howard <rob@robhoward.id.au>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/damncabbage/ts-trapper/issues"
+  },
+  "homepage": "https://github.com/damncabbage/ts-trapper#readme",
+  "devDependencies": {
+    "@types/mocha": "2.2.38",
+    "@types/node": "7.0.4",
+    "typescript": "^2.3.1",
+    "mocha": "^3.2.0",
+    "ts-node": "3.0.2",
+    "tslint": "^4.5.0",
+    "tslint-config-standard": "4.0.0",
+    "typescript": "^2.2.2",
+    "typings-checker": "1.1.2"
+  }
+}
