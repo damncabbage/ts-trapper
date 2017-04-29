@@ -25,11 +25,17 @@ class UserID extends typeWrapper<UserID,number>() {
 // Number -> UserID-wrapped Number
 const id = UserID.wrap(123);
 
+
 // 💥 Can't use like a number without unwrapping.
 const wrong1 = id * 55;
 
 // 💥 Can't use it like another wrapped type.
 const wrong2 = CompanyID.unwrap(id);
+
+// 💥 Can't use it like another wrapped type, even if it has the same name
+// and structure and is defined off in some other module.
+const wrong3 = someOtherModule.UserID.unwrap(id);
+
 
 function greet(userId: UserID, name: string): string {
   // UserID-wrapped Number -> Number
